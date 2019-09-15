@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+
+{% block title %} 
+    Товар № {{ tovar.pk }}
+{% endblock title %}
+
+{% block header %}
+    
+{% endblock header %}
+
+{% block contents %}
+
+<p>Теги: {{ tags }}</p>
+<div class="card">
+    <h5 class="card-header">Артикул {{ tovar.article }}</h5>
+    <div class="card-body">
+        <span class="badge badge-pill badge-primary">{{ tovar.group.title }}</span><br>
+      <h5 class="card-title">{{ tovar.title }}</h5>
+      <p class="card-text">{{ tovar.description }}</p>
+      <p class="card-text">Количество {{ tovar.quantity }}</p>
+      {% for tag in tovar.tags.all %}
+      <span class="badge badge-dark">{{ tag.title }}</span>
+  
+      {% endfor %}
+      
+      
+      <br><br>
+      <a href="#" class="btn btn-primary">Купить</a>
+    </div>
+  </div>
+
+  
+{% endblock contents %}

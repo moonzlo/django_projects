@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+
+{% block title %} 
+    group list
+{% endblock title %}
+
+{% block header %}
+    group list
+{% endblock header %}
+
+{% block contents %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">Код</th>
+      <th scope="col">Скоропортящийся</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for group in groups %}
+
+        <tr>
+            <td>{{ group.title }}</td>
+            <td>{{ group.code }}</td>
+            <td>{{ group.skoro }}</td>
+
+        </tr>
+        {% endfor %}
+
+  
+{% endblock contents %}
+

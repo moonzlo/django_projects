@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %} 
+    add new tags
+{% endblock title %}
+
+{% block header %}
+    Теги для {{ tovar.title }}
+{% endblock header %}
+
+{% block contents %}
+
+<p>Теги товара: </p>
+{% for tag in tovar.tags.all %}
+<ul>
+        {{ tag }} &mdash; <a href="{% url 'tovar:drop_tag' tovar.pk tag.pk %}"><img src="{% static 'tovar/del.png' %}"width="15" height="15"></a>
+</ul>
+
+{% endfor %}
+
+<form action="" method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+</form>
+   
+{% endblock contents %}

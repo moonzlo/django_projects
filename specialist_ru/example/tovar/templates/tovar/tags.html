@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+
+{% block title %} 
+    tags list
+{% endblock title %}
+
+{% block header %}
+    tags list
+{% endblock header %}
+
+{% block contents %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Название</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for tag in tags %}
+
+        <tr>
+
+            <td>{{ tag.title }}</td>
+
+
+        </tr>
+        {% endfor %}
+
+  
+{% endblock contents %}
+

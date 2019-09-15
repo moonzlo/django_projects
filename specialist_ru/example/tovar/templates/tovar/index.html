@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+
+{% block title %} 
+         shop page
+{% endblock title %}
+
+{% block header %}
+    my shop
+{% endblock header %}
+
+{% block contents %}
+<table class="table table-striped">
+  <thead class="table table-striped">
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">Артикл</th>
+      <th scope="col">Количество</th>
+      <th scope="col">Теги</th>
+      <th scope="col">&nbsp;</th>
+
+    </tr>
+  </thead>
+  <tbody>
+        {% for item in item_list %}
+
+        <tr>
+            <th scope="row">{{ item.title }}</td>
+            <td>{{ item.article }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>
+                {% for tag in item.tags.all|slice:':5' %}
+
+                  <a href="#" class="badge badge-warning">{{ tag }}</a>
+
+                {% endfor %}
+
+            </td>
+            <td>
+            <a href="{% url 'tovar:show' item.pk %}"><span class="badge badge-primary">подробнее</span></a>
+            <a href="{% url 'tovar:add_tags' item.pk %}"><span class="badge badge-secondary">добавить теги</span></a>
+            <a href="{% url 'tovar:edit' item.pk %}"><span class="badge badge-secondary">редактировать</span></a>
+            <a href="{% url 'tovar:delete' item.pk %}" onclick="return confirm('Удалить товар?')"><span class="badge badge-danger">удалить</span></a>
+            </td>
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+                <a href="{% url 'tovar:create' %}"><button type="button" class="btn btn-primary btn-lg btn-block"">Добавить товар</button></a>
+
+  
+{% endblock contents %}
+
+<!-- 
++Отобразить первые 5 тегов в колонку.
+Сделать страницу добавленине тегов к товару (через запятую).
+Все существующие теги должны иметь кнопку удалить.
+Все теги должны сохраняться в базу в нижнем регистре.
+НЕ СОХРАНЯТЬ В БД -->

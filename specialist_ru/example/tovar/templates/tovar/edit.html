@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% block title %} 
+    Реадктируем
+{% endblock title %}
+
+{% block header %}
+Реадктируем товар: {{ tovar.title }}
+{% endblock header %}
+
+{% block contents %}
+<p> Метод {{ request.method }}</p>
+<p> Сырые данные: {{ raw_data }}</p>
+
+    <form action="" method="POST">{% csrf_token %}
+        <table border="1">
+            {{ form }}
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <input type="submit">
+                <input type="reset">
+            </td>
+        </tr>
+        </table>
+    </form>
+{% endblock contents %}

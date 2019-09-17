@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block title %} 
+    add picture
+{% endblock title %}
+
+{% block header %}
+    add picture
+{% endblock header %}
+
+
+{% block contents %}
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.as_p }}
+        <p><input type="submit"></p>
+
+    </form>
+
+  
+{% endblock contents %}

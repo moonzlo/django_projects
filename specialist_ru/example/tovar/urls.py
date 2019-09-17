@@ -7,6 +7,8 @@ urlpatterns = [
 
     path('<int:id>/', views.show, name='show'),
     path('<int:id>/edit/', views.edit, name='edit'),
+    path('<int:id>/add_picture/', views.add_picture, name='add_picture'),
+    path('<int:id>/picture/', views.picture, name='picture'),
     path('<int:id>/delete/', views.delete, name='delete'),
     path('<int:id>/add_tags/', views.add_tags, name='add_tags'),
     path('<int:id>/<str:pk_tag>/drop/', views.drop_tag, name='drop_tag'),

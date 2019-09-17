@@ -130,3 +130,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'example', 'static')
 ]
+
+STATIC_ROOT = '/home/moonz/django/django_projects/specialist_ru/htdoc/static/'

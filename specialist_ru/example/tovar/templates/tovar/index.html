@@ -21,6 +21,8 @@
     </tr>
   </thead>
   <tbody>
+
+    
         {% for item in item_list %}
 
         <tr>
@@ -41,8 +43,9 @@
             <a href="{% url 'tovar:edit' item.pk %}"><span class="badge badge-secondary">редактировать</span></a>
             <a href="{% url 'tovar:delete' item.pk %}" onclick="return confirm('Удалить товар?')"><span class="badge badge-danger">удалить</span></a>
             <a href="{% url 'tovar:add_picture' item.pk %}"><span class="badge badge-primary">добавить картинку</span></a>
+            <img src="{% url 'tovar:picture' item.pk %}" alt="фото">
             </td>
-            <td><img src="{% url 'tovar:picture' item.pk %}" alt="фото"></td>
+            <!-- <td><img src="{% url 'tovar:picture' item.pk %}" alt="фото"></td> -->
 
 
         </tr>

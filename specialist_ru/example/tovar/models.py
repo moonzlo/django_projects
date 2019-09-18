@@ -11,6 +11,7 @@ class Tovar(models.Model):
     tags = models.ManyToManyField('tovar.Tag')
 
 
+
     def __str__(self):
         if self.article is None:
             return f'(----) {self.title}'

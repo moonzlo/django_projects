@@ -12,14 +12,16 @@ def picture(request, id):
             'select picture from tovar_tovar where id = %s ;',
             [id]
         )
-
+        
         ( data, ) = cursor.fetchone()
 
+        
     if not data:
         raise Http404()
 
-    response = HttpResponse(content_type='image/jpeg')
+    response = HttpResponse(content_type='image/jpeg', )
     response.write(data)
+
     return response
 
 

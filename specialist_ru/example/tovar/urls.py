@@ -16,6 +16,7 @@ urlpatterns = [
     path('tags/', views.tag_list, name='tags_list'),
     path('group/', views.group_list, name='group_list'),
     path('create/', views.create, name='create'),
+     path('graph/', views.graph, name='graph'),
     
     
 ]
